@@ -1,0 +1,274 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #faf7ff;
+    color: #302747;
+}
+
+/* Header */
+header {
+    background: #6c45c4;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+/* Navigation */
+nav {
+    background: white;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px #e8e0f4;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    text-decoration: none;
+    color: #6844b7;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ed7a57;
+}
+
+/* Welcome banner */
+.hero {
+    background: linear-gradient(120deg, #e8ddff, #fff0e5);
+    margin: 25px auto;
+    padding: 35px;
+    max-width: 1100px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    margin: 10px 0;
+    color: #50318e;
+}
+
+.hero p {
+    color: #695d7d;
+}
+
+.tag {
+    color: #d36a4e !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.hero-food {
+    font-size: 55px;
+}
+
+.menu-link {
+    display: inline-block;
+    background: #6c45c4;
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Section headings */
+.section-title, .cart h2, .payment h2, .orders h2 {
+    text-align: center;
+    color: #6c45c4;
+    margin-top: 35px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #887d9a;
+}
+
+/* Food cards */
+.food-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 25px;
+}
+
+.food {
+    width: 225px;
+    background: white;
+    text-align: center;
+    padding: 22px;
+    border-radius: 16px;
+    border: 1px solid #eee6fa;
+    box-shadow: 0 4px 12px #e9e1f2;
+    transition: 0.3s;
+}
+
+.food:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px #d9cbed;
+}
+
+.food-emoji {
+    font-size: 55px;
+    background: #f2ebff;
+    border-radius: 14px;
+    padding: 15px;
+}
+
+.food h3 {
+    color: #50318e;
+}
+
+.food p {
+    color: #81768e;
+    font-size: 14px;
+}
+
+.food .price {
+    color: #d36a4e;
+}
+
+/* Buttons */
+button {
+    background: #6c45c4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 15px;
+    margin: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover, .menu-link:hover {
+    background: #50318e;
+}
+
+/* Cart, payment and orders */
+.cart, .payment, .orders {
+    max-width: 650px;
+    margin: 35px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px #e7dff1;
+}
+
+.cart-item, .order-item {
+    background: #f7f2ff;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 10px;
+}
+
+.bill {
+    background: #fff2e9;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+#total {
+    color: #6c45c4;
+}
+
+/* Payment form */
+.payment label {
+    display: block;
+    margin: 15px 0 7px;
+    font-weight: bold;
+}
+
+.payment input, .payment select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d9cbed;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.small-note {
+    color: #887d9a;
+    font-size: 12px;
+}
+
+.secondary {
+    background: #8c829b;
+}
+
+/* Footer */
+footer {
+    background: #302747;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 45px;
+}
+
+footer p {
+    font-size: 13px;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        margin: 15px;
+        padding: 22px;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 26px;
+    }
+
+    .hero-food {
+        font-size: 40px;
+    }
+
+    .food {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .cart, .payment, .orders {
+        margin: 20px 12px;
+        padding: 18px;
+    }
+}
