@@ -1,0 +1,834 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuickSell - Used Products</title>
+
+    <link rel="stylesheet" href="usesell.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            Quick<span>Sell</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#cart">Cart 🛒</a>
+        </nav>
+
+        <button onclick="showSellForm()">Sell Item</button>
+
+    </header>
+
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div>
+
+            <h1>Buy & Sell Used Products</h1>
+
+            <p>
+                Find affordable second-hand products from
+                trusted sellers near you.
+            </p>
+
+            <button onclick="goToProducts()">
+                Shop Now
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <section class="search-section">
+
+        <input
+            type="text"
+            id="searchBox"
+            placeholder="🔍 Search products..."
+            onkeyup="searchProducts()"
+        >
+
+        <select id="category" onchange="filterProducts()">
+
+            <option value="all">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
+            <option value="books">Books</option>
+            <option value="vehicles">Vehicles</option>
+
+        </select>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="products" id="products">
+
+        <h2>Available Used Products</h2>
+
+        <div class="product-container" id="productContainer">
+
+
+            <!-- PRODUCT 1 -->
+            <div class="product-card" data-category="electronics">
+
+                <div class="product-image">
+                    📱
+                </div>
+
+                <h3>iPhone 12</h3>
+
+                <p class="price">₹28,000</p>
+
+                <p>
+                    iPhone 12 with 64GB storage.
+                    Used for 1 year and kept in good condition.
+                </p>
+
+                <p class="location">
+                    📍 Chennai
+                </p>
+
+                <p class="stock">
+                    Available: <span id="stock1">1</span>
+                </p>
+
+                <button
+                    id="button1"
+                    onclick="addToCart(1, 'iPhone 12', 28000)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="product-card" data-category="electronics">
+
+                <div class="product-image">
+                    💻
+                </div>
+
+                <h3>HP Laptop</h3>
+
+                <p class="price">₹35,000</p>
+
+                <p>
+                    HP laptop with Intel i5 processor,
+                    8GB RAM and 512GB SSD.
+                </p>
+
+                <p class="location">
+                    📍 Coimbatore
+                </p>
+
+                <p class="stock">
+                    Available: <span id="stock2">2</span>
+                </p>
+
+                <button
+                    id="button2"
+                    onclick="addToCart(2, 'HP Laptop', 35000)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="product-card" data-category="furniture">
+
+                <div class="product-image">
+                    🪑
+                </div>
+
+                <h3>Study Table</h3>
+
+                <p class="price">₹2,500</p>
+
+                <p>
+                    Wooden study table.
+                    Strong and suitable for students.
+                </p>
+
+                <p class="location">
+                    📍 Erode
+                </p>
+
+                <p class="stock">
+                    Available: <span id="stock3">1</span>
+                </p>
+
+                <button
+                    id="button3"
+                    onclick="addToCart(3, 'Study Table', 2500)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="product-card" data-category="books">
+
+                <div class="product-image">
+                    📚
+                </div>
+
+                <h3>Engineering Books</h3>
+
+                <p class="price">₹1,200</p>
+
+                <p>
+                    Collection of engineering textbooks.
+                    Good condition with minimal markings.
+                </p>
+
+                <p class="location">
+                    📍 Salem
+                </p>
+
+                <p class="stock">
+                    Available: <span id="stock4">3</span>
+                </p>
+
+                <button
+                    id="button4"
+                    onclick="addToCart(4, 'Engineering Books', 1200)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+            <div class="product-card" data-category="vehicles">
+
+                <div class="product-image">
+                    🚲
+                </div>
+
+                <h3>Mountain Bicycle</h3>
+
+                <p class="price">₹6,000</p>
+
+                <p>
+                    Lightly used mountain bicycle.
+                    Suitable for daily rides.
+                </p>
+
+                <p class="location">
+                    📍 Tiruppur
+                </p>
+
+                <p class="stock">
+                    Available: <span id="stock5">1</span>
+                </p>
+
+                <button
+                    id="button5"
+                    onclick="addToCart(5, 'Mountain Bicycle', 6000)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 6 -->
+            <div class="product-card" data-category="electronics">
+
+                <div class="product-image">
+                    🎧
+                </div>
+
+                <h3>Wireless Headphones</h3>
+
+                <p class="price">₹1,500</p>
+
+                <p>
+                    Wireless Bluetooth headphones.
+                    Good battery life and sound quality.
+                </p>
+
+                <p class="location">
+                    📍 Madurai
+                </p>
+
+                <p class="stock">
+                    Available: <span id="stock6">2</span>
+                </p>
+
+                <button
+                    id="button6"
+                    onclick="addToCart(6, 'Wireless Headphones', 1500)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CART -->
+    <section class="cart-section" id="cart">
+
+        <h2>🛒 Your Cart</h2>
+
+        <div id="cartItems">
+
+            <p class="empty">
+                Your cart is empty.
+            </p>
+
+        </div>
+
+        <div class="cart-total">
+
+            <h3>
+                Total:
+                ₹<span id="cartTotal">0</span>
+            </h3>
+
+            <button onclick="checkout()">
+                Checkout
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SELL ITEM -->
+    <section class="sell-section" id="sell">
+
+        <h2>Sell Your Product</h2>
+
+        <form onsubmit="addProduct(event)">
+
+            <input
+                type="text"
+                id="productName"
+                placeholder="Product Name"
+                required
+            >
+
+            <input
+                type="number"
+                id="productPrice"
+                placeholder="Price"
+                required
+            >
+
+            <input
+                type="number"
+                id="productStock"
+                placeholder="Quantity"
+                min="1"
+                required
+            >
+
+            <select id="productCategory" required>
+
+                <option value="">
+                    Select Category
+                </option>
+
+                <option value="electronics">
+                    Electronics
+                </option>
+
+                <option value="furniture">
+                    Furniture
+                </option>
+
+                <option value="books">
+                    Books
+                </option>
+
+                <option value="vehicles">
+                    Vehicles
+                </option>
+
+            </select>
+
+            <textarea
+                id="productDescription"
+                placeholder="Product Description"
+                required
+            ></textarea>
+
+            <input
+                type="text"
+                id="productLocation"
+                placeholder="Location"
+                required
+            >
+
+            <button type="submit">
+                Post Product
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>QuickSell</h3>
+
+        <p>
+            Buy smart. Sell easy. ♻️
+        </p>
+
+        <p>
+            © 2026 QuickSell
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Store cart products
+        let cart = [];
+
+
+        // Store available stock
+        let stock = {
+
+            1: 1,
+            2: 2,
+            3: 1,
+            4: 3,
+            5: 1,
+            6: 2
+
+        };
+
+
+        // ADD TO CART
+        function addToCart(id, name, price) {
+
+            // Check stock
+            if (stock[id] <= 0) {
+
+                alert("This product is sold out!");
+
+                return;
+
+            }
+
+
+            // Reduce stock
+            stock[id]--;
+
+
+            // Check if product already exists in cart
+            let existingProduct =
+                cart.find(function(item) {
+
+                    return item.id === id;
+
+                });
+
+
+            if (existingProduct) {
+
+                // Increase cart quantity
+                existingProduct.quantity++;
+
+            } else {
+
+                // Add new product to cart
+                cart.push({
+
+                    id: id,
+                    name: name,
+                    price: price,
+                    quantity: 1
+
+                });
+
+            }
+
+
+            // Update stock on screen
+            document.getElementById(
+                "stock" + id
+            ).innerText = stock[id];
+
+
+            // If stock becomes zero
+            if (stock[id] === 0) {
+
+                document.getElementById(
+                    "button" + id
+                ).innerText = "Sold Out";
+
+                document.getElementById(
+                    "button" + id
+                ).disabled = true;
+
+            }
+
+
+            displayCart();
+
+        }
+
+
+        // DISPLAY CART
+        function displayCart() {
+
+            let cartItems =
+                document.getElementById("cartItems");
+
+            cartItems.innerHTML = "";
+
+
+            // Empty cart
+            if (cart.length === 0) {
+
+                cartItems.innerHTML =
+                    '<p class="empty">Your cart is empty.</p>';
+
+                document.getElementById(
+                    "cartTotal"
+                ).innerText = "0";
+
+                return;
+
+            }
+
+
+            let total = 0;
+
+
+            cart.forEach(function(item) {
+
+                let itemTotal =
+                    item.price * item.quantity;
+
+
+                total += itemTotal;
+
+
+                let cartProduct =
+                    document.createElement("div");
+
+                cartProduct.className = "cart-item";
+
+
+                cartProduct.innerHTML = `
+
+                    <div>
+
+                        <h3>${item.name}</h3>
+
+                        <p>
+                            ₹${item.price}
+                            ×
+                            ${item.quantity}
+                        </p>
+
+                    </div>
+
+                    <strong>
+                        ₹${itemTotal}
+                    </strong>
+
+                `;
+
+
+                cartItems.appendChild(
+                    cartProduct
+                );
+
+            });
+
+
+            document.getElementById(
+                "cartTotal"
+            ).innerText = total;
+
+        }
+
+
+        // SEARCH
+        function searchProducts() {
+
+            let search =
+                document
+                .getElementById("searchBox")
+                .value
+                .toLowerCase();
+
+
+            let products =
+                document.querySelectorAll(
+                    ".product-card"
+                );
+
+
+            products.forEach(function(product) {
+
+                let name =
+                    product
+                    .querySelector("h3")
+                    .innerText
+                    .toLowerCase();
+
+
+                if (name.includes(search)) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+        // CATEGORY FILTER
+        function filterProducts() {
+
+            let category =
+                document.getElementById(
+                    "category"
+                ).value;
+
+
+            let products =
+                document.querySelectorAll(
+                    ".product-card"
+                );
+
+
+            products.forEach(function(product) {
+
+                if (
+                    category === "all" ||
+                    product.dataset.category === category
+                ) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+        // GO TO PRODUCTS
+        function goToProducts() {
+
+            document
+                .getElementById("products")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        // GO TO SELL FORM
+        function showSellForm() {
+
+            document
+                .getElementById("sell")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        // CHECKOUT
+        function checkout() {
+
+            if (cart.length === 0) {
+
+                alert("Your cart is empty!");
+
+                return;
+
+            }
+
+
+            alert(
+                "Order placed successfully! 🎉"
+            );
+
+
+            cart = [];
+
+            displayCart();
+
+        }
+
+
+        // ADD NEW PRODUCT
+        function addProduct(event) {
+
+            event.preventDefault();
+
+
+            let name =
+                document.getElementById(
+                    "productName"
+                ).value;
+
+
+            let price =
+                document.getElementById(
+                    "productPrice"
+                ).value;
+
+
+            let quantity =
+                document.getElementById(
+                    "productStock"
+                ).value;
+
+
+            let category =
+                document.getElementById(
+                    "productCategory"
+                ).value;
+
+
+            let description =
+                document.getElementById(
+                    "productDescription"
+                ).value;
+
+
+            let location =
+                document.getElementById(
+                    "productLocation"
+                ).value;
+
+
+            let newId =
+                Date.now();
+
+
+            stock[newId] =
+                Number(quantity);
+
+
+            let product =
+                document.createElement("div");
+
+
+            product.className =
+                "product-card";
+
+
+            product.dataset.category =
+                category;
+
+
+            product.innerHTML = `
+
+                <div class="product-image">
+                    🛍️
+                </div>
+
+                <h3>${name}</h3>
+
+                <p class="price">
+                    ₹${price}
+                </p>
+
+                <p>
+                    ${description}
+                </p>
+
+                <p class="location">
+                    📍 ${location}
+                </p>
+
+                <p class="stock">
+                    Available:
+                    <span id="stock${newId}">
+                        ${quantity}
+                    </span>
+                </p>
+
+                <button
+                    id="button${newId}"
+                    onclick="addToCart(
+                        ${newId},
+                        '${name}',
+                        ${price}
+                    )"
+                >
+                    Add to Cart
+                </button>
+
+            `;
+
+
+            document
+                .getElementById(
+                    "productContainer"
+                )
+                .appendChild(product);
+
+
+            alert(
+                "Your product has been posted! 🎉"
+            );
+
+
+            document
+                .querySelector("form")
+                .reset();
+
+
+            goToProducts();
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
